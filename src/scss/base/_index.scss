@@ -1,8 +1,11 @@
 //incluir sin usarlo, pero los incluye en un archivo más, solo como indice.
 @forward 'normalize';
 @forward 'variables';
+@forward 'mixins';
 @forward 'globales';
+@forward 'tipografia';
 @forward 'utilidades';
+
 
 //incluir, compilarlo y utilizar el contenido.
 // @use
