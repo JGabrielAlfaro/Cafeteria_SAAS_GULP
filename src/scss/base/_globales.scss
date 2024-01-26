@@ -11,7 +11,7 @@ html {
 }
 
 body {
-    font-family: v.$fuente_principal;
+    font-family: v.$fuente_secundaria;
     font-size: 1.6rem;
     background-color: v.$cafeClaro;
 }
@@ -38,3 +38,8 @@ img {
     display: block;
 }
 
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
