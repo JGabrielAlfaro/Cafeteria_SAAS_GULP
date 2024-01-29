@@ -19,7 +19,7 @@ function css() {
     return src('src/scss/app.scss')
         .pipe( sourcemaps.init() )
         .pipe( sass().on('error', errorHandler) )
-        .pipe( postcss([autoprefixer(),cssnano]) )
+        .pipe( postcss([autoprefixer(),cssnano()]) )
         .pipe( sourcemaps.write('.') )
         .pipe( dest('build/css') );
 }
