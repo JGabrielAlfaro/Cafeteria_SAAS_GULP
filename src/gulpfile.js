@@ -51,18 +51,25 @@ function versionAvif() {
         .pipe(dest('build/img'));
 }
 
+function html() {
+    return src('src/*.html') // Cambia el patrón según tu estructura de carpetas
+      .pipe(dest('build'));
+  };
+
 // Tarea para observar cambios durante el desarrollo
 function dev() {
     watch('src/scss/**/*.scss', css);
     watch('src/img/**/*', imagenes);
+    watch('src/*', html);
 }
 
 exports.css = css;
 exports.dev = dev;
+exports.html = html;
 exports.imagenes = imagenes;
 exports.versionWebp = versionWebp;
 exports.versionAvif = versionAvif;
 
 // Tarea predeterminada que se ejecuta al llamar a "gulp" desde la línea de comandos
-exports.default = series(imagenes, versionWebp, versionAvif, css, dev);
+exports.default = series(imagenes, versionWebp, versionAvif,html, css, dev);
 
