@@ -2,6 +2,8 @@ const { src, dest, watch, series } = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
+const sourcemaps = require('gulp-sourcemaps');
+const cssnano = require('cssnano');
 const imagemin = require('gulp-imagemin');
 const webp = require('gulp-webp');
 const avif = require('gulp-avif');
@@ -15,9 +17,11 @@ function errorHandler(err) {
 // Tarea para compilar Sass
 function css() {
     return src('src/scss/app.scss')
-        .pipe(sass().on('error', errorHandler))
-        .pipe(postcss([autoprefixer()]))
-        .pipe(dest('build/css'));
+        .pipe( sourcemaps.init() )
+        .pipe( sass().on('error', errorHandler) )
+        .pipe( postcss([autoprefixer(),cssnano]) )
+        .pipe( sourcemaps.write('.') )
+        .pipe( dest('build/css') );
 }
 
 // Tarea para optimizar imágenes

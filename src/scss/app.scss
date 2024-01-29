@@ -1,3 +1,8 @@
 @use 'base' ;// 'base/_index.scss'
 @use 'header'; // 'header/_index.scss'
-@use 'inicio';
+@use 'inicio'; // 'inicio/_index.scss'
+@use 'footer'; // 'footer/_index.scss'
+@use 'internas';// 'internas/_index.scss'
+
+//Utilidades siempre al final.
+@use 'utilidades';// 'internas/_index.scss'

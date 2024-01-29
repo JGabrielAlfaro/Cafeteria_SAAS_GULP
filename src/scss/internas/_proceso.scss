@@ -1,0 +1,59 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.proceso-cafe {
+    margin-bottom: v.$separacion ;
+    @include m.tablet{ 
+        display: flex;
+        gap: v.$separacion;
+        align-items: center ;
+    }
+    &:last-of-type{
+        margin-bottom: 0;
+    }
+
+    // //even todos los número pares
+    // &:nth-child(even){
+    //     .texto {
+    //         //order se utiliza cuando hay un display:flex como padre.
+    //        order: 1; 
+    //     }
+    //     .imagen {
+    //         order: 2;
+    //     }
+    // }
+    // .imagen,.texto {
+    //     flex: 1;
+    // }
+
+    //Forma resumida
+
+    &:nth-child(even){
+        .texto {
+           order: -1;  //Con el -1 le indico que este va hacer primero, el resto de segund, etc.
+        }
+
+    }
+    .imagen,.texto {
+        flex: 1;
+    }
+
+
+
+    .texto {
+        margin-top: 1rem;
+        h3{
+            margin: 0;
+            text-align: left;
+            color: v.$primario;
+
+            &::after{
+                content: "";
+                display: block;
+                width: 50%;
+                height: 5px;
+                background-color: v.$secundario;
+            }
+        }
+    }
+}
